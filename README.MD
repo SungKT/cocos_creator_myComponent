@@ -1,3 +1,13 @@
+## 这是一个自用合集:
+
+部分来源github或者自己构建，目前暂时只支持TS。
+
+1.list：https://github.com/gh-kL/cocoscreator-list 支持TS/JS，欢迎去标星
+
+
+
+
+
 # List
 
 这是一个基于**Cocos Creator**写的**虚拟列表**组件。本组件是配合 Cocos Creator 本身的**滚动窗结构**去写的，所以在编辑器中操作会很方便，**所见即所得**。
@@ -255,134 +265,3 @@ Item 总数，设置此属性后，List 会调用 renderEvent 以渲染 Item。
 
 跳转至指定页。（仅滑动模式为 `PAGE` 时可用）
 
----
-
-## 更新日志
-
-### 2020/3/24
-
-- 修复 TS 版`单选/多选`时，缺少参数的 BUG。（感谢 Cocos 论坛用户`@455073646`）
-
-### 2020/3/19
-
-示例项目升级至 ccc_v2.3.2。（CocosDashboard 真香）
-
-- 修复`自适应宽/高（AdaptiveSize）`时，调用`List.scrollTo(...)`可能会乱跳的 BUG。（感谢`幻 <*****7096@qq.com>`）
-
-### 2020/3/12
-
-示例项目升级至 ccc_v2.3.1。
-
-- 修改了`模板Item`的销毁机制，现在支持同一个`View`下，多个`List`的`模板Item`引用同一个`Node`。
-- 修复使用`自适应宽/高（AdaptiveSize）`时，可能显示不完全的 Bug。（感谢 Cocos 论坛用户`@icicic`）
-- 优化`分帧加载（FrameByFrameRenderNum）`时，滚动时刷新频率过高的问题。（感谢 Cocos 论坛用户`@lifeiying`）
-- 优化`选择模式（SelectedMode）`的使用习惯。现在允许将`按钮组件`挂载到`模板Item`下的子节点上，当然，这样用的话，需要自行添加`模板Item的ListItem的onClickThis`到该`按钮组件的Click Events`上。
-
-### 2020/1/15
-
-示例项目升级至 ccc_v2.2.2。
-
-- 修复连续调用两次`scrollTo`可能会卡住的 BUG。
-- 修复`Selected Event`报错。
-
-### 2019/12/27
-
-- 以后都不推荐在外部计算`customSize`或是手动调用`calcCustomSize`函数。
-  现在要实现`动态宽/高`，请给`模板Item`挂载`ListItem组件`，并勾选`adaptiveSize`属性即可，惊不惊喜，意不意外？使用方法请看`示例项目`中的`TestAdaptive`场景。（感谢 Cocos 论坛用户`@bluesn`给出的建议）
-  > 另外，`List.customSize`变量已更名为`_customSize`。`calcCustomSize`函数将会持续保留，某些特殊场景还是用得到的。
-- 解决`List`销毁时，有可能存在内存泄漏的 BUG。
-- List 初始化时会实例化一个`模板Item`缓存起来，并将原有引用的`模板Item`销毁。所以以后不支持两个`List`的`模板Item`引用同一个`Node`。（`Prefab`则没有这个限制）;
-
-### 2019/12/23
-
-- 修复使用`循环列表+单/多选模式`时，`选择回调事件`的参数可能会超过`numItems（或数据数组长度）`的 BUG。
-- 修复示例项目`Main.scene`的报错。
-
-### 2019/12/16
-
-示例项目升级至 ccc_v2.2.1。
-
-- 适配`cc.Widget`。（感谢 Cocos 论坛用户`@ckcfcc`）
-- 新增`TestWidget.scene`示例场景。
-- 新增`循环列表`功能，即`cyclic`属性。（目前仅支持单行/单列）
-  > 设为循环列表时，Content 的 cc.Layout 边缘距离（top/bottom/left/right）要设置成与 spacingX/Y（间距）一样。（因为在循环列表中，边距=间距）。
-- 新增`TestCyclic.scene`示例场景。
-
-### 2019/11/21
-
-- 新增`LakeSlide` 属性。当该属性为 `true` ，Item 数量不足以填满`Content`时，也可以滑动。（默认为`false`，与`LakeCenter`属性相斥）
-
-### 2019/11/18
-
-- 修复`ListItem`可能会丢失事件的 BUG。
-
-### 2019/11/9
-
-示例项目升级至 ccc_v2.2.0。
-
-- 修复`List`销毁时，`对象池中的Item`未执行销毁的 BUG。
-- 修复`PAGE`模式下，滑动翻页可能会跳页异常的 BUG。
-- 修复`模板Item`可能被误销毁的 BUG。
-- 修复当`List`节点的`Size`改变时，`List`未刷新的 BUG。
-
-> - ccc_v2.2.0 的 cc.ScrollView 有个 BUG，就是滑动时，惯性滚动到边缘没有回弹效果，这不是本组件的问题，等待官方更新修复。
-> - 这个组件我也是佛系更新，只要官方的新版本不魔改，一般来说都是向上兼容的。
-
-### 2019/9/27
-
-- 新增`背包`示例场景（`TestBag.scene`）。
-
-### 2019/9/24
-
-- TS 版， `模板Item` 取消强制挂载 `ListItem` ，现可通过 `item['_listId']` 来获取 `Item下标` 。
-- 新增`单选模式`下 `repeatEventSingle` 属性，为 `true` 时，可重复触发相同的单选事件。
-- 修复滑动 `ScollView` 时，鼠标拖到 `ScollView` 之外，会中止滚动的 BUG。
-- 修复 `SlideMode` 为 `PAGE` 或 `ADHERING` 时，滚动 `ScollView` 容易卡住的 BUG。
-
-### 2019/8/31
-
-- 新增 `TestCustomSize` 场景例子，着重演示如何用本组件实现 `聊天列表` 。
-- 优化局部代码，提升一丁点效率。
-- 将 `updateAppointed` 接口更名为 `updateItem` 。
-- 新增 `updateAll()` 接口。
-
-### 2019/7/20
-
-- 新增 `LakeCenter` 属性。当该属性为 `true` ，Item 数量不足以填满`Content`时，会居中显示所有 Item。（不支持 `GRID` 布局）
-- 新增 `calcCustomSize` 接口，方便开发者计算 `CustomSize` 。（如果模板 Item 的结构较复杂，建议还是在外部自行计算）
-- 修复反方向布局，Item 数量过少时，会向正方向对齐的 BUG。
-
-### 2019/6/15
-
-- 滑动模式新增 `PAGE` 模式，用来做分页效果，可自定义翻页滑动响应距离（ `pageDistance` ）。建议不要再用 `ADHERING` 模式去实现分页效果。关于 `PAGE` 模式下的接口： `list.prePage(timeInSecond)` 、 `list.nextPage(timeInSecond)` 、 `list.skipPage(pageNum, timeInSecond)` ，分别是上一页、下一页、跳转到指定页数。
-- 优化效率。
-
-### 2019/6/7
-
-- 新增 TS 版本。
-
-### 2019/5/28
-
-- 优化效率。
-
-### 2019/5/27
-
-- 修复滑动模式为吸附（ADHERING）时，还未吸附到目标点时，点击滚动窗，再松开，会吸附失败的 BUG。
-- 独立吸附接口 `list.adhere()` ，可外部调用，不限滑动模式。
-
-### 2019/5/23
-
-- 支持 `BOTTOM_TO_TOP` ， `RIGHT_TO_LEFT` 布局。需要注意：各种反方向排列的布局（ `BOTTOM_TO_TOP` 、 `RIGHT_TO_LEFT` ）都会有问题（item 数量过少，就会导致 Content 错位），这个是官方问题。而本组件是配合 `cc.ScrollView` 去写的，所以也不支持，待官方后续优化（Last test by Creator_v2.1.1）。如果 Item 数量很多，那么可以使用。
-
-### 2019/5/21
-
-- 单列布局时支持自定义指定 Item 的 height。单行布局时支持自定义指定 Item 的 width。通过 `list.customSize = {0:100, 1:130, 5:120, ...}` 来设置，其中 key 为 Item 的 ID，value 为 height/width，没有找到该 Item 的 customSize 将会与模板 ItemSize 一致。
-
-### 2019/5/16
-
-- 新增 List 的配套组件---- `ListItem` 。
-- 新增选择模式。
-
-### 2019/5/13
-
-- 新增带动画删除 Item 接口 `list.aniDelItem(id, callFunc, aniType)` ，因本组件毕竟还是数据驱动，所以请务必在 callFunc 中删除数据数组中相应下标的数据，然后手动更新该 list（即 `list.numItems=Number` ）。
