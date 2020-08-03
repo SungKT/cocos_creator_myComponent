@@ -9,7 +9,7 @@
 
 
 # List
-
+qqqqqq
 这是一个基于**Cocos Creator**写的**虚拟列表**组件。本组件是配合 Cocos Creator 本身的**滚动窗结构**去写的，所以在编辑器中操作会很方便，**所见即所得**。
 
 在线 DEMO：
