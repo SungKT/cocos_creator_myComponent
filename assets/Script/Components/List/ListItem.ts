@@ -8,7 +8,7 @@
  ******************************************/
 const { ccclass, property, disallowMultiple, menu, executionOrder } = cc._decorator;
 
-import List from '../Components/List';
+import List from './List';
 
 enum SelectedType {
     NONE = 0,

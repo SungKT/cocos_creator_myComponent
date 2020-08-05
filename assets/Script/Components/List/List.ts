@@ -6,7 +6,7 @@
  ******************************************/
 const { ccclass, property, disallowMultiple, menu, executionOrder, requireComponent } = cc._decorator;
 
-import ListItem from '../Components/ListItem';
+import ListItem from './ListItem';
 
 enum TemplateType {
     NODE = 1,

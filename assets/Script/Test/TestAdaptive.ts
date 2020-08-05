@@ -6,7 +6,7 @@
  ******************************************/
 const { ccclass, property } = cc._decorator;
 
-import List from '../Components/List';
+import List from '../Components/List/List';
 
 @ccclass
 export default class TestAdaptive extends cc.Component {

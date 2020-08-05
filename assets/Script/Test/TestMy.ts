@@ -5,7 +5,7 @@
 // Learn life-cycle callbacks:
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 
-import List from '../Components/List';
+import List from '../Components/List/List';
 
 const {ccclass, property} = cc._decorator;
 

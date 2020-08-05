@@ -6,8 +6,8 @@
  ******************************************/
 const { ccclass, property } = cc._decorator;
 
-import List from '../Components/List';
-import ListItem from '../Components/ListItem';
+import List from '../Components/List/List';
+import ListItem from '../Components/List/ListItem';
 
 @ccclass
 export default class Main extends cc.Component {
